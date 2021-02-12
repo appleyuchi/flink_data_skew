@@ -1,0 +1,23 @@
+①全局设置：
+env.setParallelism(3);　
+
+
+②客户端CLI设置：
+./bin/flink run -p 3
+
+
+③修改配置文件设置/conf/flink-conf.yaml的parallelism.default数值
+
+
+④算子设置（部分设置）：
+sum(1).setParallelism(3)
+
+最大并行度设置
+全局设置：
+sum(1).setMaxParallelism(n)
+env.setMaxParallelism(n)　
+
+默认的最大并行度是近似于operatorParallelism + (operatorParallelism / 2)，下限是127，上线是32768. 
+
+------------------------------------------------------------------------------------
+执行顺序级别：算子>全局env>CLI>配置文件。
