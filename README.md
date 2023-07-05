@@ -32,3 +32,18 @@ Reference:<br>
 [1][Spark性能优化指南——高级篇](https://tech.meituan.com/2016/05/12/spark-tuning-pro.html)<br>
 [2][Spark如何处理数据倾斜](https://blog.csdn.net/kaede1209/article/details/81145560)
 [3][Flink设置并行度的几种方式](http://www.mamicode.com/info-detail-2957062.html)
+
+
+
+
+测试下Meraid的用法
+
+erDiagram
+          CUSTOMER }|..|{ DELIVERY-ADDRESS : has
+          CUSTOMER ||--o{ ORDER : places
+          CUSTOMER ||--o{ INVOICE : "liable for"
+          DELIVERY-ADDRESS ||--o{ ORDER : receives
+          INVOICE ||--|{ ORDER : covers
+          ORDER ||--|{ ORDER-ITEM : includes
+          PRODUCT-CATEGORY ||--|{ PRODUCT : contains
+          PRODUCT ||--o{ ORDER-ITEM : "ordered in"
